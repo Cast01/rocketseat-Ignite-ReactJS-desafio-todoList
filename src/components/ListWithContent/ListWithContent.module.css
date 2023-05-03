@@ -1,0 +1,8 @@
+.content {
+    flex: 1;
+
+    padding: .5rem;
+
+    border-radius: 8px;
+    border: 2px solid var(--gray-400);
+}
