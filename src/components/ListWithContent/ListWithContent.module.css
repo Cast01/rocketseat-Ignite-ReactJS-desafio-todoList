@@ -3,6 +3,8 @@
 
     padding: .5rem;
 
+    overflow: auto;
+
     border-radius: 8px;
     border: 2px solid var(--gray-400);
 

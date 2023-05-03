@@ -4,11 +4,17 @@ import logo from "../../assets/Logo.svg";
 
 import styles from "./Header.module.css";
 
-export function Header() {
+type HeaderPropsType = {
+    addTaskInTodoList: (content: string) => void;
+}
+
+export function Header({
+	addTaskInTodoList
+}: HeaderPropsType) {
 	return (
 		<header className={styles.header}>
 			<img src={logo} alt="A rocket and the word 'todo' next to it" />
-			<FormAddTask />
+			<FormAddTask addTaskInTodoList={addTaskInTodoList} />
 		</header>
 	);
 }
