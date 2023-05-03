@@ -50,6 +50,12 @@ function App() {
 		setTodoList(addTask);
 	}
 
+	function deleteTaskFromTodoList(id: number) {
+		const deleteTask = todoList.filter(task => task.id !== id);
+
+		setTodoList(deleteTask);
+	}
+
 	return (
 		<div>
 			<Header
@@ -58,6 +64,7 @@ function App() {
 			<Main 
 				todoList={todoList}
 				toggleTodoListCompleted={toggleTodoListCompleted}
+				deleteTaskFromTodoList={deleteTaskFromTodoList}
 			/>
 		</div>
 	);

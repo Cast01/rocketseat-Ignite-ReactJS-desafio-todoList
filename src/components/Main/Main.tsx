@@ -4,14 +4,16 @@ import { HeaderInsideMain } from "../HeaderInsideMain/HeaderInsideMain";
 import { ListWithContent } from "../ListWithContent/ListWithContent";
 import styles from "./Main.module.css";
 
-type MainPropsType = {
+export type MainPropsType = {
     todoList: TodoListType[];
     toggleTodoListCompleted: (id: number) => void;
+    deleteTaskFromTodoList: (id: number) => void;
 }
 
 export function Main({
 	todoList,
-	toggleTodoListCompleted
+	toggleTodoListCompleted,
+	deleteTaskFromTodoList
 }: MainPropsType) {
 	const todoListLength = todoList.length;
 	return (
@@ -22,6 +24,7 @@ export function Main({
 					(<ListWithContent 
 						todoList={todoList}
 						toggleTodoListCompleted={toggleTodoListCompleted}
+						deleteTaskFromTodoList={deleteTaskFromTodoList}
 					/>)
 					:
 					(<EmptyList />)

@@ -1,8 +1,8 @@
-import { TodoListType } from "../Main/Main";
+import { TodoListType } from "../../App";
 import styles from "./HeaderInsideMain.module.css";
 
 type HeaderInsideMainPropsType = {
-    todoList: TodoListType[]
+    todoList: TodoListType[];
 }
 
 export function HeaderInsideMain({

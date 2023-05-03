@@ -1,15 +1,18 @@
 import { CheckCircle, Circle, Trash } from "phosphor-react";
-import { TodoListType } from "../Main/Main";
+import { TodoListType } from "../../App";
+
 import styles from "./ListWithContent.module.css";
 
 type ListWithContentPropsType = {
     todoList: TodoListType[];
     toggleTodoListCompleted: (id: number) => void;
+    deleteTaskFromTodoList: (id: number) => void;
 }
 
 export function ListWithContent({
 	todoList,
-	toggleTodoListCompleted
+	toggleTodoListCompleted,
+	deleteTaskFromTodoList
 }: ListWithContentPropsType) {
 	return (
 		<ul className={styles.content}>
@@ -38,7 +41,11 @@ export function ListWithContent({
 							</div>
 							<p className={task.completed ? styles.taskContentCompleted : styles.taskContent}>{task.content}</p>
 							<div>
-								<Trash size={"1.8rem"} weight="bold" />
+								<Trash 
+									size={"1.8rem"}
+									weight="bold"
+									onClick={() => deleteTaskFromTodoList(task.id)}
+								/>
 							</div>
 						</li>
 					);
