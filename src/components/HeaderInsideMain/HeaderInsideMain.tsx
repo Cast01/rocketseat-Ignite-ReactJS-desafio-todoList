@@ -19,7 +19,7 @@ export function HeaderInsideMain({
 			</div>
 			<div>
 				<span>Concluídas</span>
-				<span>{taskCompletedLength}</span>
+				<span>{taskCompletedLength} de {todoListLength}</span>
 			</div>
 		</header>
 	);
