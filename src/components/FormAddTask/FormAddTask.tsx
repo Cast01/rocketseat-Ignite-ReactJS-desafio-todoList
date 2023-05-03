@@ -1,35 +1,40 @@
 import { PlusCircle } from "phosphor-react";
 import styles from "./FormAddTask.module.css";
-import { ChangeEvent, FormEvent, useCallback, useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import { TodoListContext } from "../../contexts/TodoListContext";
 
-type FormAddTaskPropsType = {
-    addTaskInTodoList: (content: string) => void;
-}
-
-export function FormAddTask({
-	addTaskInTodoList
-}: FormAddTaskPropsType) {
+export function FormAddTask() {
 	const [todoListContentInput, setTodoListContentInput] = useState("");
+
+	const { addTaskInTodoList } = useContext(TodoListContext);
 
 	function contentOnChange(e: ChangeEvent<HTMLInputElement>) {
 		setTodoListContentInput(e.target.value);
 	}
 
-	const addTaskInTodoListCallback = useCallback((e: FormEvent) => {
+	function submitForm(e: FormEvent) {
 		e.preventDefault();
 
+		if (!todoListContentInput) {
+			alert("Você não digitou nada.");
+
+			return;
+		}
+
 		addTaskInTodoList(todoListContentInput);
-	}, [todoListContentInput, addTaskInTodoList]);
+
+		setTodoListContentInput("");
+	}
 
 	return (
 		<form
-			onSubmit={addTaskInTodoListCallback}
+			onSubmit={submitForm}
 			className={styles.form}
 		>
 			<input
 				type="text"
 				placeholder="Adicionar uma nova tarefa"
-				defaultValue={todoListContentInput}
+				value={todoListContentInput}
 				onChange={(e) => contentOnChange(e)}
 			/>
 			<button type="submit">

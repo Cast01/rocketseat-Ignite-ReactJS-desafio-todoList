@@ -1,19 +1,13 @@
 import { CheckCircle, Circle, Trash } from "phosphor-react";
-import { TodoListType } from "../../App";
+
+import { useContext } from "react";
+import { TodoListContext } from "../../contexts/TodoListContext";
 
 import styles from "./ListWithContent.module.css";
 
-type ListWithContentPropsType = {
-    todoList: TodoListType[];
-    toggleTodoListCompleted: (id: number) => void;
-    deleteTaskFromTodoList: (id: number) => void;
-}
-
-export function ListWithContent({
-	todoList,
-	toggleTodoListCompleted,
-	deleteTaskFromTodoList
-}: ListWithContentPropsType) {
+export function ListWithContent() {
+	const { todoList, toggleTodoListCompleted, deleteTaskFromTodoList } = useContext(TodoListContext);
+    
 	return (
 		<ul className={styles.content}>
 			{

@@ -1,16 +1,15 @@
-import { TodoListType } from "../../App";
+import { useContext } from "react";
+
+import { TodoListContext } from "../../contexts/TodoListContext";
+
 import styles from "./HeaderInsideMain.module.css";
 
-type HeaderInsideMainPropsType = {
-    todoList: TodoListType[];
-}
+export function HeaderInsideMain() {
+	const { todoList } = useContext(TodoListContext);
 
-export function HeaderInsideMain({
-	todoList
-}: HeaderInsideMainPropsType) {
 	const todoListLength = todoList.length;
 	const taskCompletedLength = todoList.filter(task => task.completed === true).length;
-
+    
 	return (
 		<header className={styles.header}>
 			<div>
