@@ -5,4 +5,104 @@
 
     border-radius: 8px;
     border: 2px solid var(--gray-400);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.li {
+    width: 100%;
+    min-height: 7.2rem;
+
+    background-color: var(--gray-500);
+
+    color: var(--gray-100);
+
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+
+    padding: 1.6rem;
+
+    border-radius: 8px;
+}
+
+.taskContent {
+    min-height: 100%;
+
+    flex: 1;
+
+    font-size: 1.6rem;
+    font-weight: 300;
+
+    border-radius: 8px;
+
+    background-color: var(--gray-600);
+
+    padding: 0 .4rem;
+
+    border: 1px solid rgba(78, 168, 222, .3);
+}
+
+.content li > div svg {
+    cursor: pointer;
+}
+
+.content li > div:last-child {
+    line-height: 0;
+
+    transition: .3s;
+}
+
+.content li > div:last-child:hover {
+    color: rgb(255, 55, 55);
+}
+
+/* Completed */
+
+.liCompleted {
+    width: 100%;
+    min-height: 7.2rem;
+
+    background-color: var(--gray-500);
+
+    color: var(--gray-100);
+
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+
+    padding: 1.6rem;
+
+    border-radius: 8px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.checkBoxCompleted svg {
+    background-color: var(--purple-dark);
+    
+    border-radius: 50%;
+}
+
+.taskContentCompleted {
+    min-height: 100%;
+
+    flex: 1;
+
+    font-size: 1.6rem;
+    font-weight: 300;
+
+    border-radius: 8px;
+
+    background-color: var(--gray-600);
+
+    padding: 0 .4rem;
+
+    border: 1px solid rgba(78, 168, 222, .3);
+
+    text-decoration: line-through;
 }
